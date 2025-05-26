@@ -1,8 +1,5 @@
-
 function App() {
-
-  return (
-    
+  return (   
      <div className="bg-sky-900 p-5 m-5">hello </div>
   
   )
