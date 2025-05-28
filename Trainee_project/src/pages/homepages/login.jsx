@@ -1,19 +1,45 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const n = useNavigate() 
+  const navigate = useNavigate();
+
   return (
-    <div className='flex flex-col items-center justify-center' style={{marginTop:"16px",marginBottom:"16px"}}>
-    <h1 style={{fontSize:"28px"}}>Login</h1>
-    <input type="text" placeholder='enter username' style={{border:"2px solid grey",padding:"2px",borderRadius:"10px",width:"320px"}}/><br />
-    <input type="password" placeholder='enter password' style={{border:"2px solid grey",padding:"2px",borderRadius:"10px",width:"320px"}}/><br />
-    <button style={{border:"2px solid grey",padding:"2px",borderRadius:"10px",width:"320px",marginBottom:"10px"}} onClick={()=>n("/")}>Login</button>
-    <p>Don't have a account ? <span onClick={()=>n("/Signup")} style={{fontWeight:"bold"}}>Sign up</span></p>
+    <div className="flex flex-col items-center justify-center h-[520px] px-4">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+        <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
+
+        <input
+          type="text"
+          placeholder="Enter username"
+          className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          type="password"
+          placeholder="Enter password"
+          className="w-full px-4 py-2 mb-6 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          onClick={() => navigate("/")}
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300"
+        >
+          Login
+        </button>
+
+        <p className="mt-4 text-center text-sm">
+          Don't have an account?{" "}
+          <span
+            onClick={() => navigate("/signup")}
+            className="text-blue-600 font-semibold cursor-pointer hover:underline"
+          >
+            Sign up
+          </span>
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
-
- 
+export default Login;

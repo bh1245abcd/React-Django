@@ -1,4 +1,3 @@
-// components/WishlistItem.jsx
 import React from "react";
 
 const WishlistItem= ({ product, onRemove }) => {

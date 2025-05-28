@@ -52,7 +52,7 @@ const Bselling = () => {
         {/* Image Grid */}
         <div className="grid grid-cols-4 gap-4">
           {images.slice(startIndex, startIndex + visibleCount).map((imgSrc, index) => (
-            <Link to="/product"><img
+            <Link to="/product" state={{ selectedImage: imgSrc }}><img
               key={index}
               src={imgSrc}
               alt={`Image ${startIndex + index + 1}`}

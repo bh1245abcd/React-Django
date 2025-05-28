@@ -1,16 +1,31 @@
-import kids from "../kid";
+// import kids from "../kid";
+import { Link } from 'react-router-dom';
+import mendata from '../men.js';
 
 const Kid = () => (
-  <div className="p-8">
-    <h2 className="text-3xl font-bold mb-6 text-center">kid's Products</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {kids.map((product) => (
-        <ul>
-          <li><p>{product.name}</p></li>
-          <li><p>{product.price}</p></li>
-        </ul>
-      ))}
+  <div className="p-8 my-10">
+    <h2 className="text-3xl font-bold mb-6 text-center">Kid's Products</h2>
+    <div className="flex flex-wrap justify-center gap-8 px-4 py-6">
+  {mendata.map((product, index) => (
+    <div
+      key={index}
+      className="w-full sm:w-[45%] md:w-[30%] lg:w-[22%] bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300"
+    >
+      <Link to="/product" key={index} state={{ selectedImage: product.image }}>
+      <img
+        src={product.image}
+        alt={product.name}
+        className="h-72 w-full object-top"
+      />
+      </Link>
+      <div className="p-4">
+        <h2 className="text-lg font-semibold text-gray-800 mb-2">{product.name}</h2>
+        <p className="text-violet-700 font-bold text-xl">${product.price}</p>
+      </div>
     </div>
+  ))}
+</div>
+
   </div>
 );
 

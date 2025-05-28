@@ -7,56 +7,56 @@ import post5 from "../assets/post5.avif";
 import post6 from "../assets/post6.jpg";
 import p1 from "../assets/p1.webp";
 import side from "../assets/side.jpg";
-
+import { useState,useEffect } from 'react';
+// import c1 from '../../assets/c1.jpg'
+import c1 from "../assets/c1.jpg"
+import c2 from '../assets/c1.jpg'
+import c3 from '../assets/c3.jpg'
+import c4 from '../assets/c4.jpg'
+const images = [c1, c2, c3, c4];
 
 const blogImages = [p1, post2, post3, post4, post5, post6];
 
-
 const Blog = () => {
+    
+  const [currentIndex, setCurrentIndex] = useState(0);
+   
+    useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
     return (
         <div className="font-sans bg-gray-100 text-gray-800">
-
-            {/* Hero */}
-            <section
-                id="home"
-                className="relative h-[70vh] flex items-center justify-center bg-cover bg-center"
-                style={{
-                    backgroundImage: `url(${post1})`,
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundAttachment: 'fixed',
-                    backgroundBlendMode: 'overlay',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    height: '90vh',
-                    backgroundPosition: 'center',
-                }}
-            >
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-60"></div>
-                <div className="relative text-center text-white" style={{
-                    paddingLeft: '1rem',
-                    paddingRight: '1rem',
-                    marginTop: '3rem' // shifts all content downward
-                }}>
-                    <h2 className="text-4xl font-bold" style={{ marginBottom: '1rem' }}>Welcome to Our Fashion Blog</h2>
-                    <p className="text-xl" style={{ margintop: '1.5rem' }}>Stay ahead with the latest trends, styling tips, and exclusive insights from the fashion world.</p>
-                    <a
-                        href="#posts"
-                        className="bg-blue-700 rounded-md inline-block text-white transition-transform duration-300 hover:bg-blue-800 hover:scale-105"
-                        style={{ padding: '0.75rem 1.5rem', marginTop: '2rem' }}
-                    >
-                        Explore Now
-                    </a>
-                </div>
-            </section>
-
-            {/* Divider */}
-            <hr className="border-t border-gray-300 my-12 max-w-7xl mx-auto" />
+           
+             <div
+      className="slider"
+      style={{
+        width: "100%",
+        height: "320px",
+        overflow: "hidden",
+        marginTop:"50px"
+      }}
+    >
+      <img
+        alt=""
+        src={images[currentIndex]}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "",
+          objectPosition: "center",
+          transition: "opacity 0.5s ease-in-out",
+        }}
+      />
+    </div>
 
             {/* Main Content Grid */}
             <div
                 className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8"
-                style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem', paddingTop: '4rem', paddingBottom: '4rem' }}
+                style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem', paddingTop: '2rem', paddingBottom: '4rem' }}
             >
 
                 {/* Sidebar */}
