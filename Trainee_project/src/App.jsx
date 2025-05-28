@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+function App() {
+  return (   
+     <div className="bg-sky-900 p-5 m-5">hello </div>
+  
+=======
 import Home from './pages/Home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Contact from '../src/pages/Contact.jsx'
@@ -38,6 +44,7 @@ function App() {
       </Routes>
       <Footer/>
     </Router>
+>>>>>>> Bhavya
   )
 }
 
